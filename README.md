@@ -16,10 +16,10 @@ To set up the development environment for our E-commerce API, please follow thes
 Clone the repository: git clone https://github.com/Izunna-Norbert/mainstack.git
 Install dependencies: npm install
 Create a .env file and add the following environment variables:
-makefile
-Copy code
-MONGODB_URI=<your-mongodb-uri>
+
+MONGODB_URL=<your-mongodb-uri>
 PORT=<your-port>
+
 Start the development server: npm start
 API Documentation
 Our E-commerce API is documented using Swagger. You can access the documentation by visiting http://localhost:3000/api-docs after starting the development server.
