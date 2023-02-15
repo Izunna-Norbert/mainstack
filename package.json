@@ -7,7 +7,7 @@
     "prettier": "prettier 'src/**/*.ts'",
     "prettier:fix": "prettier --write 'src/**/*.ts'",
     "build": "rimraf dist && tsc -b",
-    "start": "node dist/index",
+    "start": "npm run build && node ./dist/index.js",
     "start:dev": "nodemon ./src/index.ts"
   },
   "keywords": [],
