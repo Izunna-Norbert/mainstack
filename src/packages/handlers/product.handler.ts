@@ -6,9 +6,7 @@ import ProductUsecase from '../usecases/product.usecase';
 
 export default class ProductHandler {
   private productUsecase: ProductUsecase;
-  constructor(
-    productUsecase: ProductUsecase,
-  ) {
+  constructor(productUsecase: ProductUsecase) {
     this.productUsecase = productUsecase;
   }
   createProduct = async (req: Request, res: Response) => {
@@ -18,7 +16,9 @@ export default class ProductHandler {
         name: Joi.string().required(),
         description: Joi.string().required(),
         price: Joi.number().required(),
-        category: Joi.string().required().valid(...PRODUCT_CATEGORIES),
+        category: Joi.string()
+          .required()
+          .valid(...PRODUCT_CATEGORIES),
         image: Joi.string().optional(),
         brand: Joi.string().optional(),
       });
@@ -35,7 +35,7 @@ export default class ProductHandler {
       }
       return res.status(500).json({ success: false, message: error.message, error: error.name });
     }
-  }
+  };
 
   getProductById = async (req: Request, res: Response) => {
     try {
@@ -57,7 +57,7 @@ export default class ProductHandler {
       }
       return res.status(500).json({ success: false, message: error.message, error: error.name });
     }
-  }
+  };
 
   getProductByName = async (req: Request, res: Response) => {
     try {
@@ -79,9 +79,9 @@ export default class ProductHandler {
       }
       return res.status(500).json({ success: false, message: error.message, error: error.name });
     }
-  }
+  };
 
-  getProducts = async (req: Request, res: Response) =>{
+  getProducts = async (req: Request, res: Response) => {
     try {
       const data = req.query;
       const schema = Joi.object({
@@ -106,13 +106,15 @@ export default class ProductHandler {
       }
       return res.status(500).json({ success: false, message: error.message, error: error.name });
     }
-  }
+  };
 
   getProductByCategory = async (req: Request, res: Response) => {
     try {
       const data = req.params;
       const schema = Joi.object({
-        category: Joi.string().required().valid(...PRODUCT_CATEGORIES),
+        category: Joi.string()
+          .required()
+          .valid(...PRODUCT_CATEGORIES),
         page: Joi.number().optional(),
         limit: Joi.number().optional(),
       });
@@ -132,18 +134,20 @@ export default class ProductHandler {
       }
       return res.status(500).json({ success: false, message: error.message, error: error.name });
     }
-  }
+  };
 
   updateProduct = async (req: Request, res: Response) => {
     try {
-      const data = { ...req.body, ...req.params}
+      const data = { ...req.body, ...req.params };
       const schema = Joi.object({
         id: Joi.string().required(),
         name: Joi.string().optional(),
         description: Joi.string().optional(),
         price: Joi.number().optional(),
         image: Joi.string().optional(),
-        category: Joi.string().valid(...PRODUCT_CATEGORIES).optional(),
+        category: Joi.string()
+          .valid(...PRODUCT_CATEGORIES)
+          .optional(),
         brand: Joi.string().optional(),
       });
       validate(schema, data);
@@ -159,7 +163,7 @@ export default class ProductHandler {
       }
       return res.status(500).json({ success: false, message: error.message, error: error.name });
     }
-  }
+  };
 
   deleteProduct = async (req: Request, res: Response) => {
     try {
@@ -181,5 +185,5 @@ export default class ProductHandler {
       }
       return res.status(500).json({ success: false, message: error.message, error: error.name });
     }
-  }
+  };
 }

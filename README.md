@@ -22,7 +22,7 @@ PORT=<your-port>
 
 Start the development server: npm start
 API Documentation
-Our E-commerce API is documented using Swagger. You can access the JSON documentation by visiting https://api.postman.com/collections/9588132-03a3695c-67a8-430f-bd0b-052e9f85294d?access_key=PMAT-01GS9CB3K6S549WE1NZ4VD9NBR after starting the development server.
+Our E-commerce API is documented using Postman. You can access the JSON documentation by visiting https://elements.getpostman.com/redirect?entityId=9588132-03a3695c-67a8-430f-bd0b-052e9f85294d&entityType=collection after starting the development server.
 
 Contributing
 We welcome contributions to our E-commerce API! To contribute, please follow these guidelines:

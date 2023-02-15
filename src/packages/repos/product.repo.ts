@@ -3,7 +3,7 @@ import { MProduct } from '../../models/interfaces/model.interface';
 import { IPagination, IProduct, RGetProducts } from '../interfaces/product.interface';
 
 export default class ProductRepo {
-  private readonly dbModels: typeof DbModels
+  private readonly dbModels: typeof DbModels;
   constructor(dbModels: typeof DbModels) {
     this.dbModels = dbModels;
   }
@@ -34,10 +34,9 @@ export default class ProductRepo {
     const products = await this.dbModels.Product.find({ category })
       .skip((page - 1) * limit)
       .limit(limit);
-    
+
     const total = await this.dbModels.Product.countDocuments({ category });
     return { products, total };
-
   }
 
   async updateProductById(id: string, data: IProduct): Promise<MProduct | null> {

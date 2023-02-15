@@ -10,7 +10,7 @@ import {
 import ProductRepo from '../repos/product.repo';
 
 export default class ProductUsecase {
-  private productRepo: ProductRepo
+  private productRepo: ProductRepo;
   constructor(productRepo: ProductRepo) {
     this.productRepo = productRepo;
   }
