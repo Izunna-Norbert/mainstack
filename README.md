@@ -17,8 +17,11 @@ Clone the repository: git clone https://github.com/Izunna-Norbert/mainstack.git
 Install dependencies: npm install
 Create a .env file and add the following environment variables:
 
+```
 MONGODB_URL=<your-mongodb-uri>
 PORT=<your-port>
+```
+
 
 Start the development server: npm start
 API Documentation
