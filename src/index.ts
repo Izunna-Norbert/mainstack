@@ -8,7 +8,7 @@ const app: Express = express();
 const port: number = Number(process.env.PORT) || 3000;
 
 app.get('/', (req: Request, res: Response) => {
-  res.send('Hello World!');
+  res.send('Welcome to Mainstack E-Commerce API');
 });
 
 app.use(express.json());
