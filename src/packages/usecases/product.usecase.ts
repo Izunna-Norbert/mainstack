@@ -114,8 +114,8 @@ export default class ProductUsecase {
     try {
       const response = await this.productRepo.updateProductById(data.id, data);
       return {
-        success: true,
-        message: 'Product updated successfully',
+        success: response ? true : false,
+        message: response ? 'Product updated successfully' : 'Product not found',
         data: response,
       };
     } catch (error: any) {
